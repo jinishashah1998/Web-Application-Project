@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CyberCity Comic Strips</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+  <style type="text/css">
+    form {
+      text-align: right;
+      color: white
+    }
+    
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 25px 35px;
+      align-self: center;
+      text-align: center
+    }
+
+
+    .previous {
+      background-color: #29bbdc;
+      color: white;
+      vertical-align: middle
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .next {
+      background-color: #29bbdc;
+      color: white;
+      vertical-align: middle;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body style="background-color: #141B44">
+  <a href="/" class="Stratus360">
+    <center><img src="/Stratus360.png" width="240px" height="40px"></center>
+  </a><br><br><br>
+  <form action="/action_page.php">
+    <label for="comic_num">Enter comic number to search (1-2328):</label>
+    <input type="text" id="comic_num" name="comic_num">
+    <input type="submit" value="Submit" disabled="True">
+    <br><br><br>
+  </form>
+  <i>
+    <b>
+      <script>
+        var text = <%- JSON.stringify(data) %>
+        document.write(("<p style= 'text-align:left; font-size:20px; color:white'> Comic Number: " + text.num  + "</p>"))
+        document.write("<p style= 'text-align:left; font-size:20px; color: white'> Date created: " + text.day + "/" + text.month + "/" + text.year + "</p>")
+      </script>
+    </i>
+    <div class="jumbotron text-center">
+      <center>
+        <script>
+          document.write("<p>" + text.title.big() + "</p>")
+        </script>
+      </b>
+    </center>
+  </div>
+
+  <div>
+  <ul>
+    <br>
+    <center>
+      <a href="https://xkcd.com/2327/" class="previous"> &#8249; Prev</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <img src= <%- JSON.stringify(data.img) %> width="350px" height="500px" style="vertical-align:middle">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a href="https://xkcd.com/2328/" class="next"> Next &#8250;</a>
+
+      <br><br><br>
+    </center>
+  </ul>
+</div>
+
+</body>
+
+</html>
